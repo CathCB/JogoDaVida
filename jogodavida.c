@@ -9,21 +9,27 @@ int tam_mundo, qtd_geracao;
 typedef int tipoTabela [TAMANHO][LARGURA];
 
 void printtabela(tipoTabela tabela) {
-	int tamanho, largura;
+    int tamanho, largura;
 
-	for (tamanho = 0; tamanho < tam_mundo; tamanho++) {
-		for (largura = 0; largura < tam_mundo; largura++) {
-			if (tabela[tamanho][largura] == vida_sim) {
-				printf("X");
-			} else {
-				printf(" ");
-			}
-		}
-		printf("\n");
-	}
-	printf("\n");
+    printf("  ");
+    for (tamanho = 0;tamanho<tam_mundo;tamanho++){
+        printf("%d ", tamanho);
+    }
+    printf("\n");
+
+    for (tamanho = 0; tamanho < tam_mundo; tamanho++) {
+        printf("%d", tamanho);
+        for (largura = 0; largura < tam_mundo; largura++) {
+            if (tabela[tamanho][largura] == vida_sim) {
+                printf(" X");
+            } else {
+                printf(" -");
+            }
+        }
+        printf("\n");
+    }
+    printf("\n");
 }
-
 
 
 void limpartabela (tipoTabela tabela) {
