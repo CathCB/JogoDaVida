@@ -11,7 +11,7 @@ typedef int tipoTabela [TAMANHO][LARGURA];
 void printtabela(tipoTabela tabela) {
     int tamanho, largura;
 
-    printf("  ");
+    printf(" ");
     for (tamanho = 0;tamanho<tam_mundo;tamanho++){
         printf("%d ", tamanho);
     }
@@ -23,7 +23,7 @@ void printtabela(tipoTabela tabela) {
             if (tabela[tamanho][largura] == vida_sim) {
                 printf(" X");
             } else {
-                printf(" -");
+                printf(" ");
             }
         }
         printf("\n");
