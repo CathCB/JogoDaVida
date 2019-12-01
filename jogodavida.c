@@ -8,7 +8,7 @@ int tam_mundo, qtd_geracao;
 
 typedef int tipoTabela [TAMANHO][LARGURA];
 
-void printtabela(tipoTabela tabela) {
+void printtabela(tipoTabela tabela, int bichinho) {
     int tamanho, largura;
 
     printf(" ");
@@ -20,11 +20,13 @@ void printtabela(tipoTabela tabela) {
     for (tamanho = 0; tamanho < tam_mundo; tamanho++) {
         printf("%d", tamanho);
         for (largura = 0; largura < tam_mundo; largura++) {
-            if (tabela[tamanho][largura] == vida_sim) {
-                printf(" X");
+            if (tabela[tamanho][largura] == vida_sim && bichinho==1) {
+                printf("#");
+            } else if ((tabela[tamanho][largura] == vida_sim && bichinho==2){
+                printf("*");
             } else {
-                printf(" ");
-            }
+		   printf(" ");
+	    }	    
         }
         printf("\n");
     }
@@ -65,6 +67,16 @@ int perguntarusuario(tipoTabela tabelaA) {
 		tabelaA[tamanho][largura] = vida_sim;
 	}
 	return qtd_geracao;
+}
+
+int formato_bichinho(){
+        int bichinho;
+
+        printf("Qual formato deseja? Digite 1 para # ou 2 para *");
+        scanf("%d", &bichinho);
+
+return bichinho;
+
 }
 
 
@@ -125,10 +137,12 @@ int main(void) {
 	char opcao;
 	int geracao = 0;
 	int contador = 1;
+	int bichinho;
 
     define_tam_mundo();
     limpartabela(tabela);
     perguntarusuario(tabela);
+    bichinho = formato_bichinho();	
     printf("Seu mundo se encontra assim:\n");
 	printtabela(tabela);
     do {
